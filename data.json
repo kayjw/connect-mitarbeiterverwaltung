@@ -1,0 +1,53 @@
+{
+  "employees" : {
+    "0" : {
+      "firstName" : "Olive",
+		  "lastName" : "Yew",
+      "jobTitle" : "Senior Frontend Engineer",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v2"
+    },
+    "1" : {
+      "firstName" : "Aida",
+		  "lastName" : "Bugg",
+      "jobTitle" : "Talent Manager",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v3"
+    },
+    "2" : {
+      "firstName" : "Maureen",
+		  "lastName" : "Biologist",
+      "jobTitle" : "Junior Java Developer",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v4"
+    },
+    "3" : {
+      "firstName" : "Teri",
+		  "lastName" : "Dactyl",
+      "jobTitle" : "Senior PHP Developer",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v5"
+    },
+    "4" : {
+      "firstName" : "Peg",
+		  "lastName" : "Legge",
+      "jobTitle" : "Social Media Marketing",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v6"
+    },
+    "5" : {
+      "firstName" : "Allie",
+		  "lastName" : "Grater",
+      "jobTitle" : "Junior Frontend Engineer",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v7"
+    },
+    "6" : {
+      "firstName" : "Liz",
+		  "lastName" : "Erd",
+      "jobTitle" : "ITS",
+      "phoneNumber" : "+41 79 000 00 00",
+      "profile" : "8417fe3e-d2f0-4704-b511-7c2345f0f2v8"
+    }
+  }
+}
