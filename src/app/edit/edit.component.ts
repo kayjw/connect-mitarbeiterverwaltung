@@ -51,7 +51,11 @@ export class EditComponent implements OnInit {
     }
 
     // add will not work
-  ngOnInit() {  }
+  ngOnInit() {
+    if (this.employeesService._personalProfile) {
+      this.model = this.employeesService._personalProfile;
+    }
+  }
 
   dismiss() {
     this.modalController.dismiss({
@@ -63,11 +67,11 @@ export class EditComponent implements OnInit {
     console.log("save")
     console.log(this.model)
     // TODO make validation
-    //if (this.key) {
-      //this.employeesService.update(this.model);
-    //} else {
+    if (this.model) {
+      this.employeesService.update(this.model);
+    } else {
       this.employeesService.create(this.model);
-    //}
+    }
 
     this.dismiss();
     // this.router.navigate(['/ui/home']);
