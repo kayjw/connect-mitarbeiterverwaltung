@@ -118,15 +118,15 @@ export class EmployeesService {
     // path to new item
     let refNewEmployee = push(this.refEmployees);
     this.setOwnerToMe(employee).then(() => {
-      delete employee._key;
+      //delete employee._key;
       set(refNewEmployee, employee).then();
     });
   }
 
-  public update(key: string, employee: Employee): void {
-    const refUpdateEmployee = ref(this.database, `${EMPLOYEES_DB}/${key}`);
+  public update(employee: Employee): void {
+    const refUpdateEmployee = ref(this.database, `${EMPLOYEES_DB}/${employee._key}`);
     this.setOwnerToMe(employee).then(() => {
-      delete employee._key;
+      //delete employee._key;
       update(refUpdateEmployee, employee).then();
     });
   }

@@ -11,13 +11,7 @@ export class HomeComponent implements OnInit {
   public searchTerm: string = '';
 
   constructor(private employeesService: EmployeesService) {
-    // TODO fix
-    //this.searchTerm = '';
-    setTimeout(() => {
-      // this.searchTerm = ' ';
-      // this.searchTerm = '';
-      this.refreshEmployees(null);
-    }, 1000);
+    setTimeout(() => {}, 1000);
   }
 
   ngOnInit() { this.refreshEmployees(null) }

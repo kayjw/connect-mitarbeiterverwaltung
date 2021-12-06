@@ -28,51 +28,46 @@ export class EditComponent implements OnInit {
     private employeesService: EmployeesService,
     private modalController: ModalController
   ) {
-    this.key = this.activatedRoute.snapshot.paramMap.get('profile');
-    //console.log(this.key); // -> null
-    //this.key = "8417fe3e-d2f0-4704-b511-7c2345f0f2a1";
+    // key from url not possible
+    //this.key = this.activatedRoute.snapshot.paramMap.get('key');
+    //console.log(this.key);
 
+    /*!this.isNewRecord &&
+      this.employeesService
+        .getByKey(this.key)
+        .then(value => (this.employee = value))
+        .then(() => (this.model = this.employee));
 
+*/
+    //console.log(this.employeesService.getByKey(this.model._key))
+     // console.log(this.employeesService._personalProfile)
+      //this.model = this.employeesService._personalProfile
+      //console.log(this.model);
+      if (this.key !== null) {
+        console.log(this.employeesService._personalProfile)
+      } else {
+        console.log("create new record")
+      }
+    }
 
-    !this.isNewRecord &&
-      (this.model = this.employeesService._personalProfile)
-      // this.employeesService
-      //   .getByKey(this.key)
-      //   .then(value => {
-      //     (this.employee = value)
-      //     console.log(this.employee);
-      //   })
-      //   .then(() => this.employee && (this.model = this.employee));
-      //   console.log(this.employee)
-      //   console.log(this.model)
-
-  }
-
-  ngOnInit() { }
-
+    // add will not work
+  ngOnInit() {  }
 
   dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
     this.modalController.dismiss({
       'dismissed': true
     });
   }
 
-
-  public get isNewRecord(): boolean {
-    return this.key === null;
-  }
-
   public save(): void {
+    console.log("save")
+    console.log(this.model)
     // TODO make validation
-    console.log("adding person");
-    console.log(this.key);
-    if (this.key) {
-      this.employeesService.update(this.key, this.model);
-    } else {
+    //if (this.key) {
+      //this.employeesService.update(this.model);
+    //} else {
       this.employeesService.create(this.model);
-    }
+    //}
 
     this.dismiss();
     // this.router.navigate(['/ui/home']);

@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
     private employeesService: EmployeesService,
     public modalController: ModalController
   ) {
+    setTimeout(() => {}, 1000);
     // NOT WORKING
     //this.deviceAuthService.getDeviceId().then(deviceId => this.profile = deviceId);
 
@@ -32,7 +33,7 @@ export class ProfileComponent implements OnInit {
     this.edit = false;
   }
 
-  ngOnInit() { }
+  ngOnInit() { this.refreshEmployees(null) }
 
 
   async presentModal() {
