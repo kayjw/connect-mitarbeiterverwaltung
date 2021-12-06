@@ -18,13 +18,14 @@ export class HomeComponent implements OnInit {
 
   get employees(): Employee[] {
 
-    return this.employeesService.employees.filter(
-      value =>
-        value.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        value.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        value.jobTitle.toString().startsWith(this.searchTerm.toLowerCase()) ||
-        value.phoneNumber.toString().startsWith(this.searchTerm.toLowerCase())
-    );
+      return this.employeesService.employees.filter(employee => {
+        let searchTerm = this.searchTerm.toLowerCase();
+        let lastName = employee.lastName.toLowerCase();
+        let firstName = employee.firstName.toLowerCase();
+        let jobTitle = employee.jobTitle.toLowerCase();
+        let phoneNumber = employee.phoneNumber;
+        return lastName.includes(searchTerm) || firstName.includes(searchTerm) || jobTitle.includes(searchTerm) || phoneNumber.includes(searchTerm);
+      });
   }
 
   public refreshEmployees($event): void {
