@@ -28,9 +28,11 @@ export class EditComponent implements OnInit {
     private employeesService: EmployeesService,
     private modalController: ModalController
   ) {
-    //this.key = this.activatedRoute.snapshot.paramMap.get('profile');
+    this.key = this.activatedRoute.snapshot.paramMap.get('profile');
     //console.log(this.key); // -> null
-    this.key = "8417fe3e-d2f0-4704-b511-7c2345f0f2a1";
+    //this.key = "8417fe3e-d2f0-4704-b511-7c2345f0f2a1";
+
+
 
     !this.isNewRecord &&
       (this.model = this.employeesService._personalProfile)

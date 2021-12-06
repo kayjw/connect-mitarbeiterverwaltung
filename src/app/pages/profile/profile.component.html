@@ -3,7 +3,6 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-
   <div *ngIf="employee">
     <ion-card>
       <img style="width: 100%;" src="assets/dummy.png">
@@ -21,6 +20,5 @@
     <ion-button (click)="presentModal()">bearbeiten</ion-button>
   </div>
 
-  <app-edit *ngIf="!employee"></app-edit>
-
+  <ion-button *ngIf="!employee" (click)="presentModal()">Profil erstellen</ion-button>
 </ion-content>

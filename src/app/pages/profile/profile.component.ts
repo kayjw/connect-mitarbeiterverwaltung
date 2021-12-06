@@ -25,7 +25,10 @@ export class ProfileComponent implements OnInit {
     private employeesService: EmployeesService,
     public modalController: ModalController
   ) {
-    // this.deviceAuthService.getDeviceId().then(deviceId => this.profile = deviceId);
+    // NOT WORKING
+    //this.deviceAuthService.getDeviceId().then(deviceId => this.profile = deviceId);
+
+    //this.profile = "8417fe3e-d2f0-4704-b511-7c2345f0f2a1";
     this.edit = false;
   }
 
@@ -39,13 +42,14 @@ export class ProfileComponent implements OnInit {
     return await modal.present();
   }
 
-
-
   get employee(): Employee {
     return this.employeesService.employees.filter(
-      value => value.profile === this.deviceId
+      value => {
+        return value.profile === this.deviceId
+      }
     )[0];
   }
+
 
   public refreshEmployees($event): void {
     this.employeesService.refreshPrivate();

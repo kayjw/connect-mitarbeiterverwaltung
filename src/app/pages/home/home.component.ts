@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private employeesService: EmployeesService) {
     // TODO fix
-    this.searchTerm = '';
+    //this.searchTerm = '';
     setTimeout(() => {
       // this.searchTerm = ' ';
       // this.searchTerm = '';
