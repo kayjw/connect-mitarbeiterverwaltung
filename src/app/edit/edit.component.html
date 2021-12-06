@@ -1,0 +1,35 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ui/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ (isNewRecord) ? "New Employee" : "Edit " + employee?.firstName }}</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+
+<ion-content class="input-cover" [fullscreen]="true" [scrollY]="false" [scrollX]="false">
+  <ion-item>
+    <ion-label position="floating">Vorname</ion-label>
+    <ion-input [(ngModel)]="model.firstName" type="text" required="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nachname</ion-label>
+    <ion-input [(ngModel)]="model.lastName" type="text" required="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Job Titel</ion-label>
+    <ion-input [(ngModel)]="model.jobTitle" type="text" required="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Telefonnummer</ion-label>
+    <ion-input [(ngModel)]="model.phoneNumber" type="text" required="true"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="save()">Save</ion-button>
+  <ion-button (click)="dismiss()">Cancel</ion-button>
+  <ion-button (click)="deleteEmployee()">delete</ion-button>
+</ion-content>

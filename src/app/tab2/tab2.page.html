@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="end">
+      <ion-button expand="block" (click)="save()">fertig</ion-button>
+    </ion-buttons> -->
+    <!-- <ion-title>{{ (isNewRecord) ? "New Holding" : "Edit " + holding?.symbol }}</ion-title> -->
+    <!-- <ion-title>Profil hinzufügen</ion-title> -->
+    <ion-title>
+      Profil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" [scrollY]="false" [scrollX]="false">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <app-profile></app-profile>
+
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refreshEmployees($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <div *ngIf="employee">
+    <ion-card>
+      <img style="width: 100%;" src="assets/dummy.png">
+
+      <ion-card-header>
+        <ion-card-subtitle>{{employee!.jobTitle}}</ion-card-subtitle>
+        <ion-card-title>{{employee!.firstName}} {{employee!.lastName}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{employee!.phoneNumber}}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button (click)="presentModal()">bearbeiten</ion-button>
+  </div>
+
+  <app-edit *ngIf="!employee"></app-edit>
+
+</ion-content>

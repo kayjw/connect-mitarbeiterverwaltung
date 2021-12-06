@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "mitarbeiterverwaltung",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
