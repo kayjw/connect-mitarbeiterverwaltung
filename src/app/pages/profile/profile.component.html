@@ -17,8 +17,15 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-button (click)="presentModal()">bearbeiten</ion-button>
+    <ion-button expand="block" (click)="presentModal()">Profil bearbeiten</ion-button>
   </div>
 
-  <ion-button *ngIf="!employee" (click)="presentModal()">Profil erstellen</ion-button>
+  <div *ngIf="!employee">
+    <ion-item lines="none" class="text">
+      <ion-label>
+        Sie haben noch kein Profil erstellt.
+      </ion-label>
+    </ion-item>
+    <ion-button expand="block" (click)="presentModal()">Profil erstellen</ion-button>
+  </div>
 </ion-content>

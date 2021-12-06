@@ -1,40 +1,51 @@
-<!-- <ion-header>
+<ion-header>
   <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> -->
+    <ion-title>{{ (model.firstName != null) ? "Profil hinzufügen" : "Profil editieren" }}</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/ui/home"></ion-back-button>
+      <ion-button (click)="dismiss()">Zurück</ion-button>
     </ion-buttons>
-    <ion-title>{{ (isNewRecord) ? "New Employee" : "Edit " + employee?.firstName }}</ion-title>
   </ion-toolbar>
-</ion-header>-->
+</ion-header>
 
 
 <ion-content class="input-cover" [fullscreen]="true" [scrollY]="false" [scrollX]="false">
   <ion-item>
     <ion-label position="floating">Vorname</ion-label>
     <!-- <ion-input [(ngModel)]="model.firstName" type="text" required="true"></ion-input> -->
-    <ion-input [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text" required="true"></ion-input>
+    <ion-input [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text" required="true">
+    </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Nachname</ion-label>
     <!-- <ion-input [(ngModel)]="model.lastName" type="text" required="true"></ion-input> -->
-    <ion-input [ngModel]="model?.lastName" (ngModelChange)="model.lastName = $event" type="text" required="true"></ion-input>
+    <ion-input [ngModel]="model?.lastName" (ngModelChange)="model.lastName = $event" type="text" required="true">
+    </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Job Titel</ion-label>
     <!-- <ion-input [(ngModel)]="model.jobTitle" type="text" required="true"></ion-input> -->
-    <ion-input [ngModel]="model?.jobTitle" (ngModelChange)="model.jobTitle = $event" type="text" required="true"></ion-input>
+    <ion-input [ngModel]="model?.jobTitle" (ngModelChange)="model.jobTitle = $event" type="text" required="true">
+    </ion-input>
 
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Telefonnummer</ion-label>
     <!-- <ion-input [(ngModel)]="model.phoneNumber" type="text" required="true"></ion-input> -->
-    <ion-input [ngModel]="model?.phoneNumber" (ngModelChange)="model.phoneNumber = $event" type="text" required="true"></ion-input>
+    <ion-input [ngModel]="model?.phoneNumber" (ngModelChange)="model.phoneNumber = $event" type="text" required="true">
+    </ion-input>
   </ion-item>
 
-  <ion-button (click)="save()">Save</ion-button>
-  <ion-button (click)="dismiss()">Cancel</ion-button>
-  <ion-button (click)="delete()">delete</ion-button>
+  <div class="buttonBox">
+    <ion-button (click)="delete()" color="danger">Löschen</ion-button>
+    <ion-button (click)="save()" color="success">Speichern</ion-button>
+  </div>
+
+
+
 </ion-content>
