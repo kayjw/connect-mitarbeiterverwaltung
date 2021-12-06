@@ -76,7 +76,7 @@ export class EditComponent implements OnInit {
     // this.router.navigate(['/ui/home']);
   }
 
-  public deleteEmployee(): void {
+  public delete(): void {
     this.employeesService.delete(this.model._key);
     this.dismiss();
   }

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     }, 1000);
   }
 
-  ngOnInit() { }
+  ngOnInit() { this.refreshEmployees(null) }
 
   get employees(): Employee[] {
 
