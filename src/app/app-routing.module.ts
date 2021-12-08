@@ -5,18 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-  },
-  // {
-  //   path: 'ui/edit/:key',
-  //   loadChildren: () => import('./edit/edit.module').then(m => m.EditPageModule),
-  // },
-
-  // Fallback Route to Home
-  // {
-  //   path: '**',
-  //   redirectTo: '/ui/home',
-  //   pathMatch: 'full',
-  // },
+  }
 ];
 
 @NgModule({
