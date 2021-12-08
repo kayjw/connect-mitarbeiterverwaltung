@@ -17,14 +17,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() { this.refreshEmployees(null) }
 
   get employees(): Employee[] {
-
       return this.employeesService.employees.filter(employee => {
-        let searchTerm = this.searchTerm.toLowerCase();
-        let lastName = employee.lastName.toLowerCase();
-        let firstName = employee.firstName.toLowerCase();
-        let jobTitle = employee.jobTitle.toLowerCase();
-        let phoneNumber = employee.phoneNumber;
-        return lastName.includes(searchTerm) || firstName.includes(searchTerm) || jobTitle.includes(searchTerm) || phoneNumber.includes(searchTerm);
+        //if (employee.profile != this.employeesService._personalProfile.profile) {
+          let searchTerm = this.searchTerm.toLowerCase();
+          let lastName = employee.lastName.toLowerCase();
+          let firstName = employee.firstName.toLowerCase();
+          let jobTitle = employee.jobTitle.toLowerCase();
+          let phoneNumber = employee.phoneNumber;
+          return lastName.includes(searchTerm) || firstName.includes(searchTerm) || jobTitle.includes(searchTerm) || phoneNumber.includes(searchTerm);
+       // }
       });
   }
 
