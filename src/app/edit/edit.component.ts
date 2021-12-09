@@ -4,6 +4,7 @@ import { EmployeesService } from '../services/employees/employees.service';
 import { Employee } from '../models/Employee';
 import { ModalController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -42,15 +43,23 @@ export class EditComponent implements OnInit {
   }
 
   public save(): void {
+    // check if
     console.log("save")
     console.log(this.model)
-    if (this.model) {
+    // if (this.model.firstName != '' && this.model.lastName != '' && this.model.jobTitle != '' && this.model.phoneNumber != '') {
+    //   console.log("test")
+    // }
+    if (this.model.firstName != '' && this.model.lastName != '' && this.model.jobTitle != '' && this.model.phoneNumber != '') {
       this.employeesService.update(this.model);
+      this.dismiss();
     } else {
-      this.employeesService.create(this.model);
+      document.getElementById("error").style.display = "";
+      document.getElementById("error").innerHTML = "";
+      if (this.model.firstName == '') document.getElementById("error").innerHTML += "Fehler in Vorname <br>";
+      if (this.model.lastName == '') document.getElementById("error").innerHTML += "Fehler in Nachname <br>";
+      if (this.model.jobTitle == '') document.getElementById("error").innerHTML += "Fehler in Job Titel <br>";
+      if (this.model.phoneNumber == '') document.getElementById("error").innerHTML += "Fehler in Telefonnummer <br>";
     }
-
-    this.dismiss();
   }
 
   public delete(): void {

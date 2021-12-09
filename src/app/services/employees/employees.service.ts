@@ -114,14 +114,14 @@ export class EmployeesService {
 
 
 
-  public create(employee: Employee): void {
+  /*public create(employee: Employee): void {
     // path to new item
     let refNewEmployee = push(this.refEmployees);
     this.setOwnerToMe(employee).then(() => {
       //delete employee._key;
       set(refNewEmployee, employee).then();
     });
-  }
+  }*/
 
   public update(employee: Employee): void {
     const refUpdateEmployee = ref(this.database, `${EMPLOYEES_DB}/${employee._key}`);
