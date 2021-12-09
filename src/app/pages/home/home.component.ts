@@ -8,22 +8,23 @@ import { EmployeesService } from '../../services/employees/employees.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public searchTerm: string = '';
+  public searchTerm = '';
 
   constructor(private employeesService: EmployeesService) {
     setTimeout(() => {}, 1000);
   }
 
-  ngOnInit() { this.refreshEmployees(null) }
+  ngOnInit() { this.refreshEmployees(null); }
 
   get employees(): Employee[] {
       return this.employeesService.employees.filter(employee => {
-        //if (employee.profile != this.employeesService._personalProfile.profile) {
-          let searchTerm = this.searchTerm.toLowerCase();
-          let lastName = employee.lastName.toLowerCase();
-          let firstName = employee.firstName.toLowerCase();
-          let jobTitle = employee.jobTitle.toLowerCase();
-          let phoneNumber = employee.phoneNumber;
+        //if (employee.profile != this.employeesService.personalProfile.profile) {
+          const searchTerm = this.searchTerm.toLowerCase();
+          const lastName = employee.lastName.toLowerCase();
+          const firstName = employee.firstName.toLowerCase();
+          const jobTitle = employee.jobTitle.toLowerCase();
+          const phoneNumber = employee.phoneNumber;
+          // eslint-disable-next-line max-len
           return lastName.includes(searchTerm) || firstName.includes(searchTerm) || jobTitle.includes(searchTerm) || phoneNumber.includes(searchTerm);
        // }
       });
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   public deleteEmployee(employee: Employee): void {
+    // eslint-disable-next-line no-underscore-dangle
     this.employeesService.delete(employee._key);
   }
 

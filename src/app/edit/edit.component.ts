@@ -28,41 +28,44 @@ export class EditComponent implements OnInit {
     private router: Router,
     private employeesService: EmployeesService,
     private modalController: ModalController
-  ) {}
+  ) { }
 
   ngOnInit() {
-    if (this.employeesService._personalProfile) {
-      this.model = this.employeesService._personalProfile;
+    if (this.employeesService.personalProfile) {
+      this.model = this.employeesService.personalProfile;
     }
   }
 
   dismiss() {
     this.modalController.dismiss({
-      'dismissed': true
+      dismissed: true
     });
   }
 
   public save(): void {
-    // check if
-    console.log("save")
-    console.log(this.model)
-    // if (this.model.firstName != '' && this.model.lastName != '' && this.model.jobTitle != '' && this.model.phoneNumber != '') {
-    //   console.log("test")
-    // }
-    if (this.model.firstName != '' && this.model.lastName != '' && this.model.jobTitle != '' && this.model.phoneNumber != '') {
+    if (this.model.firstName !== '' && this.model.lastName !== '' && this.model.jobTitle !== '' && this.model.phoneNumber !== '') {
       this.employeesService.update(this.model);
       this.dismiss();
     } else {
-      document.getElementById("error").style.display = "";
-      document.getElementById("error").innerHTML = "";
-      if (this.model.firstName == '') document.getElementById("error").innerHTML += "Fehler in Vorname <br>";
-      if (this.model.lastName == '') document.getElementById("error").innerHTML += "Fehler in Nachname <br>";
-      if (this.model.jobTitle == '') document.getElementById("error").innerHTML += "Fehler in Job Titel <br>";
-      if (this.model.phoneNumber == '') document.getElementById("error").innerHTML += "Fehler in Telefonnummer <br>";
+      document.getElementById('error').style.display = ' ';
+      document.getElementById('error').innerHTML = '';
+      if (this.model.firstName === '') {
+        document.getElementById('error').innerHTML += 'Fehler in Vorname <br>';
+      }
+      if (this.model.lastName === '') {
+        document.getElementById('error').innerHTML += 'Fehler in Nachname <br>';
+      }
+      if (this.model.jobTitle === '') {
+        document.getElementById('error').innerHTML += 'Fehler in Job Titel <br>';
+      }
+      if (this.model.phoneNumber === '') {
+        document.getElementById('error').innerHTML += 'Fehler in Telefonnummer <br>';
+      }
     }
   }
 
   public delete(): void {
+    // eslint-disable-next-line no-underscore-dangle
     this.employeesService.delete(this.model._key);
     this.dismiss();
   }

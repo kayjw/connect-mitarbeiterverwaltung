@@ -16,9 +16,11 @@ export class IsOnlineService {
   }
 
   public get isOnline(): Promise<boolean> {
-    return Network.getStatus().then(value => {
-      return value.connected;
-    });
+    return Network.getStatus().then(value => value.connected);
+  }
+
+  public unregister(): void {
+    this.listener.remove().then();
   }
 
   private register(): void {
@@ -31,14 +33,11 @@ export class IsOnlineService {
   private async showToastOffline(): Promise<void> {
     const TOAST_DURATION_MS = 3 * 1000;
     this.toast = await this.toastController.create({
-      message: "Es besteht keine Internetverbindung. Deine Daten werden gesichert, wenn du wieder online bist.",
+      message: 'Es besteht keine Internetverbindung. Deine Daten werden gesichert, wenn du wieder online bist.',
       duration: TOAST_DURATION_MS,
       buttons: ['verstanden'],
     });
     await this.toast.present();
   }
 
-  public unregister(): void {
-    this.listener.remove().then();
-  }
 }

@@ -20,14 +20,14 @@ import {
 import { Database, DatabaseReference, DataSnapshot, Unsubscribe } from 'firebase/database';
 import { DeviceAuthService } from '../device-auth/device-auth.service';
 
-const EMPLOYEES_DB: string = 'employees';
+const EMPLOYEES_DB = 'employees';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeesService {
+  public personalProfile: Employee;
   private _employees: Employee[];
-  public _personalProfile: Employee;
   private profile: string;
 
   private readonly firebaseApp: FirebaseApp;
@@ -38,7 +38,7 @@ export class EmployeesService {
 
   constructor(private deviceAuthService: DeviceAuthService) {
     this._employees = [];
-    this._personalProfile;
+    //this.personalProfile;
     this.firebaseApp = initializeApp(environment.firebase);
     this.database = getDatabase(this.firebaseApp);
     this.refEmployees = ref(this.database, `${EMPLOYEES_DB}/`);
@@ -62,28 +62,7 @@ export class EmployeesService {
     return this._employees;
   }
 
-  //#region CRUD
 
-  /**
-   * initial fetch data &
-   * register data event listener
-   * @private
-   */
-  private get(): void {
-    const refMyEmployees = query(this.refEmployees, orderByChild('firstName'));
-    this.unsubscriber = onValue(refMyEmployees, dataSnapshot => {
-      this._employees = /*this.orderBySymbol(*/this.convertDataSnapshotToArray(dataSnapshot)/*)*/;
-      console.table(this._employees);
-    });
-  }
-
-  // todo: use this function to get private
-  private getPrivate(): void {
-    const refMyEmployees = query(this.refEmployees, orderByChild('profile'), equalTo(this.profile));
-    this.unsubscriber = onValue(refMyEmployees, dataSnapshot => {
-      this._personalProfile = /*this.orderBySymbol(*/this.convertDataSnapshotToArray(dataSnapshot)[0]/*)*/;
-    });
-  }
 
   public refresh(): void {
     typeof this.unsubscriber === 'function' && this.unsubscriber();
@@ -96,32 +75,13 @@ export class EmployeesService {
   }
 
   public getByKey(key: string): Promise<Employee> {
-    // const refDatabase = ref(this.database);
-    // return get(child(refDatabase, `${EMPLOYEES_DB}/${key}`)).then(dataSnapshot => {
-    //   let element = dataSnapshot.val() as Employee;
-    //   // manual remapping of key
-    //   element._key = key;
-    //   return element;
-    // });
-
     return new Promise((resolve, reject) => {
-      const employees = this._employees.filter(employee => employee.profile == key);
+      const employees = this._employees.filter(employee => employee.profile === key);
       !employees.length && reject();
       console.log(employees);
       resolve(employees[0]);
-    })
-  }
-
-
-
-  /*public create(employee: Employee): void {
-    // path to new item
-    let refNewEmployee = push(this.refEmployees);
-    this.setOwnerToMe(employee).then(() => {
-      //delete employee._key;
-      set(refNewEmployee, employee).then();
     });
-  }*/
+  }
 
   public update(employee: Employee): void {
     const refUpdateEmployee = ref(this.database, `${EMPLOYEES_DB}/${employee._key}`);
@@ -137,6 +97,22 @@ export class EmployeesService {
     remove(refDeleteEmployee).then();
   }
 
+  private get(): void {
+    const refMyEmployees = query(this.refEmployees, orderByChild('firstName'));
+    this.unsubscriber = onValue(refMyEmployees, dataSnapshot => {
+      this._employees = /*this.orderBySymbol(*/this.convertDataSnapshotToArray(dataSnapshot)/*)*/;
+      console.table(this._employees);
+    });
+  }
+
+  // todo: use this function to get private
+  private getPrivate(): void {
+    const refMyEmployees = query(this.refEmployees, orderByChild('profile'), equalTo(this.profile));
+    this.unsubscriber = onValue(refMyEmployees, dataSnapshot => {
+      this.personalProfile = /*this.orderBySymbol(*/this.convertDataSnapshotToArray(dataSnapshot)[0]/*)*/;
+    });
+  }
+
   //#endregion CRUD
 
   //#region Helpers
@@ -146,9 +122,9 @@ export class EmployeesService {
   }*/
 
   private convertDataSnapshotToArray(dataSnapshot: DataSnapshot): Employee[] {
-    let array: Employee[] = [];
+    const array: Employee[] = [];
     dataSnapshot.forEach(item => {
-      let value: Employee = item.val();
+      const value: Employee = item.val();
       value._key = item.key;
       array.push(value);
     });
