@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "mitarbeiterverwaltung",
+	"appId": "com.kaywild.mitarbeiterverwaltung",
+	"appName": "Connect",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

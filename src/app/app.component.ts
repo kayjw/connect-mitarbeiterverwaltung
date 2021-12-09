@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {IsOnlineService} from './services/is-online/is-online.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IsOnlineService } from './services/is-online/is-online.service';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isOnlineService.unregister();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.screen.orientation.lock('portrait');
+  }
 }
