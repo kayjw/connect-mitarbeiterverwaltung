@@ -1,11 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Network} from '@capacitor/network';
-import {PluginListenerHandle} from '@capacitor/core';
-import {ToastController} from '@ionic/angular';
+import { Injectable } from '@angular/core';
+import { Network } from '@capacitor/network';
+import { PluginListenerHandle } from '@capacitor/core';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class IsOnlineService {
   private listener: PluginListenerHandle;
   private toast: HTMLIonToastElement;
@@ -30,9 +31,9 @@ export class IsOnlineService {
   private async showToastOffline(): Promise<void> {
     const TOAST_DURATION_MS = 3 * 1000;
     this.toast = await this.toastController.create({
-      message: "Lost network connection. We will save you data when you're back online",
+      message: "Es besteht keine Internetverbindung. Deine Daten werden gesichert, wenn du wieder online bist.",
       duration: TOAST_DURATION_MS,
-      buttons: ['Dismiss'],
+      buttons: ['verstanden'],
     });
     await this.toast.present();
   }
