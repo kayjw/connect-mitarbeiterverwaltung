@@ -7,12 +7,11 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="input-cover" [fullscreen]="true" [scrollY]="false" [scrollX]="false">
   <ion-item>
     <ion-label position="floating">Vorname</ion-label>
-    <ion-input class="inputField" [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text" required="true" maxlength="15" minlength="3">
-
+    <ion-input class="inputField" [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text"
+      required="true" maxlength="15" minlength="3">
     </ion-input>
   </ion-item>
 
@@ -28,17 +27,14 @@
     <ion-input [ngModel]="model?.jobTitle" (ngModelChange)="model.jobTitle = $event" type="text" required="true"
       maxlength="15" minlength="3">
     </ion-input>
-
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Telefonnummer</ion-label>
-    <!-- NEED TO MAKE FOR SWITZERLAND -->
     <ion-input [ngModel]="model?.phoneNumber" (ngModelChange)="model.phoneNumber = $event" required="true"
       inputmode="tel" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" maxlength="16">
     </ion-input>
   </ion-item>
-
 
   <div class="errorBox">
     <p style="display: none;" id="error"></p>
@@ -48,7 +44,4 @@
     <ion-button (click)="delete()" color="danger">Löschen</ion-button>
     <ion-button (click)="save()" color="success">Speichern</ion-button>
   </div>
-
-
-
 </ion-content>
