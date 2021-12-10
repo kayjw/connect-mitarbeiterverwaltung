@@ -19,11 +19,7 @@ export class DeviceAuthService {
   public getDeviceId(): Promise<string> {
     return Device.getId().then(
       value => value.uuid,
-      _ => {
-        console.warn('could not get device uuid');
-        console.warn('will use dummy');
-        return 'dummy';
-      }
+      _ => 'dummy'
     );
   }
 }

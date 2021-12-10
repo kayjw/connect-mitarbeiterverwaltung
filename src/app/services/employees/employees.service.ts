@@ -105,7 +105,6 @@ export class EmployeesService {
     const refMyEmployees = query(this.refEmployees, orderByChild('firstName'));
     this.unsubscriber = onValue(refMyEmployees, dataSnapshot => {
       this._employees = /*this.orderBySymbol(*/this.convertDataSnapshotToArray(dataSnapshot)/*)*/;
-      console.table(this._employees);
     });
   }
 
