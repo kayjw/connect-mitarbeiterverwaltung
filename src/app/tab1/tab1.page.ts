@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Platform} from '@ionic/angular';
+import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 interface Item {
   name: string;
@@ -11,7 +11,7 @@ interface Item {
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  constructor(public platform: Platform) {}
+  constructor(public platform: Platform) { }
 
   get platformHeaderIsSupported(): boolean {
     return this.platform.is('ios');

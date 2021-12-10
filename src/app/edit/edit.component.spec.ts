@@ -1,7 +1,7 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { IonicModule } from '@ionic/angular';
 
-import {EditComponent} from './edit.component';
+import { EditComponent } from './edit.component';
 
 describe('EditComponent', () => {
   let component: EditComponent;

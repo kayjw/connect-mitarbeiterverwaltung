@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import {Injectable} from '@angular/core';
-import {Device} from '@capacitor/device';
+import { Injectable } from '@angular/core';
+import { Device } from '@capacitor/device';
 
 @Injectable({
   providedIn: 'root',

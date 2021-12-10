@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
     private employeesService: EmployeesService,
     public modalController: ModalController
   ) {
-    setTimeout(() => {}, 1000);
+    setTimeout(() => { }, 1000);
     this.edit = false;
   }
 
