@@ -32,7 +32,7 @@
   <ion-item>
     <ion-label position="floating">Telefonnummer</ion-label>
     <ion-input [ngModel]="model?.phoneNumber" (ngModelChange)="model.phoneNumber = $event" required="true"
-      inputmode="tel" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" maxlength="16">
+      inputmode="tel" pattern="(\+41)\s(\d{2})\s(\d{3})\s(\d{2})\s(\d{2})" maxlength="16">
     </ion-input>
   </ion-item>
 
