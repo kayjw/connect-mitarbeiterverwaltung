@@ -4,6 +4,7 @@
   <ion-refresher slot="fixed" (ionRefresh)="refreshEmployees($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+    <p class="noDataMessage" *ngIf="employees.length === 0">Seite neu laden um Daten anzuzeigen...</p>
     <ion-list class="employees">
       <ion-item *ngFor="let employee of employees">
         <ion-avatar slot="start">

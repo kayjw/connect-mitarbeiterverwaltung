@@ -1,3 +1,10 @@
 .employees {
   margin-bottom: 120px;
 }
+
+.noDataMessage {
+  position: absolute;
+  left: 50%;
+  width: 80vw;
+  transform: translate(-50%, 0);
+}
