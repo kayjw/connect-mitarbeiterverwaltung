@@ -25,7 +25,7 @@ export class IsOnlineService {
 
   private register(): void {
     this.listener = Network.addListener('networkStatusChange', status => {
-      console.debug('Network status changed', status);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       !status.connected && this.showToastOffline().then();
     });
   }

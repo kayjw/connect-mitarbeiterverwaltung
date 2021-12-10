@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Employee } from '../../models/Employee';
@@ -54,6 +55,7 @@ export class EmployeesService {
   /**
    * to cleanly unsubscribe to data updates when service destroyed
    */
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnDestroy() {
     this.unsubscriber();
   }
@@ -65,11 +67,13 @@ export class EmployeesService {
 
 
   public refresh(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     typeof this.unsubscriber === 'function' && this.unsubscriber();
     this.get();
   }
 
   public refreshPrivate(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     typeof this.unsubscriber === 'function' && this.unsubscriber();
     this.getPrivate();
   }
@@ -77,6 +81,7 @@ export class EmployeesService {
   public getByKey(key: string): Promise<Employee> {
     return new Promise((resolve, reject) => {
       const employees = this._employees.filter(employee => employee.profile === key);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       !employees.length && reject();
       console.log(employees);
       resolve(employees[0]);

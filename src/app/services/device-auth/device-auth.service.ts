@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import {Injectable} from '@angular/core';
 import {Device} from '@capacitor/device';
 
@@ -17,12 +18,10 @@ export class DeviceAuthService {
 
   public getDeviceId(): Promise<string> {
     return Device.getId().then(
-      value => {
-        return value.uuid;
-      },
+      value => value.uuid,
       _ => {
         console.warn('could not get device uuid');
-        console.warn("will use 'dummy'");
+        console.warn('will use dummy');
         return 'dummy';
       }
     );
