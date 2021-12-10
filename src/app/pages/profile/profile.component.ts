@@ -13,7 +13,6 @@ import { EditComponent } from 'src/app/edit/edit.component';
 })
 
 export class ProfileComponent implements OnInit {
-  // ionic toast to only show one element
   public profile: string;
   public edit = false;
   private toast: HTMLIonToastElement;
@@ -25,10 +24,6 @@ export class ProfileComponent implements OnInit {
     public modalController: ModalController
   ) {
     setTimeout(() => {}, 1000);
-    // NOT WORKING
-    //this.deviceAuthService.getDeviceId().then(deviceId => this.profile = deviceId);
-
-    //this.profile = "8417fe3e-d2f0-4704-b511-7c2345f0f2a1";
     this.edit = false;
   }
 
@@ -51,7 +46,6 @@ export class ProfileComponent implements OnInit {
 
   public refreshEmployees($event): void {
     this.employeesService.refreshPrivate();
-    // confirm refresh
     $event?.target.complete();
     this.edit = false;
   }

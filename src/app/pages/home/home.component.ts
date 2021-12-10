@@ -11,28 +11,25 @@ export class HomeComponent implements OnInit {
   public searchTerm = '';
 
   constructor(private employeesService: EmployeesService) {
-    setTimeout(() => {}, 1000);
+    setTimeout(() => { }, 1000);
   }
 
   ngOnInit() { this.refreshEmployees(null); }
 
   get employees(): Employee[] {
-      return this.employeesService.employees.filter(employee => {
-        //if (employee.profile != this.employeesService.personalProfile.profile) {
-          const searchTerm = this.searchTerm.toLowerCase();
-          const lastName = employee.lastName.toLowerCase();
-          const firstName = employee.firstName.toLowerCase();
-          const jobTitle = employee.jobTitle.toLowerCase();
-          const phoneNumber = employee.phoneNumber;
-          // eslint-disable-next-line max-len
-          return lastName.includes(searchTerm) || firstName.includes(searchTerm) || jobTitle.includes(searchTerm) || phoneNumber.includes(searchTerm);
-       // }
-      });
+    return this.employeesService.employees.filter(employee => {
+      const searchTerm = this.searchTerm.toLowerCase();
+      const lastName = employee.lastName.toLowerCase();
+      const firstName = employee.firstName.toLowerCase();
+      const jobTitle = employee.jobTitle.toLowerCase();
+      const phoneNumber = employee.phoneNumber;
+      // eslint-disable-next-line max-len
+      return lastName.includes(searchTerm) || firstName.includes(searchTerm) || jobTitle.includes(searchTerm) || phoneNumber.includes(searchTerm);
+    });
   }
 
   public refreshEmployees($event): void {
     this.employeesService.refresh();
-    // confirm refresh
     $event?.target.complete();
   }
 

@@ -11,17 +11,13 @@
 <ion-content class="input-cover" [fullscreen]="true" [scrollY]="false" [scrollX]="false">
   <ion-item>
     <ion-label position="floating">Vorname</ion-label>
-    <!-- <ion-input [(ngModel)]="model.firstName" type="text" required="true"></ion-input> -->
-    <!-- <ion-input class="inputField" [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text" required="true" pattern="[Bb]anana|[Cc]herry"> -->
-    <ion-input class="inputField" [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text"
-      required="true" maxlength="15" minlength="3">
+    <ion-input class="inputField" [ngModel]="model?.firstName" (ngModelChange)="model.firstName = $event" type="text" required="true" maxlength="15" minlength="3">
 
     </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Nachname</ion-label>
-    <!-- <ion-input [(ngModel)]="model.lastName" type="text" required="true"></ion-input> -->
     <ion-input [ngModel]="model?.lastName" (ngModelChange)="model.lastName = $event" type="text" required="true"
       maxlength="15" minlength="3">
     </ion-input>
@@ -29,7 +25,6 @@
 
   <ion-item>
     <ion-label position="floating">Job Titel</ion-label>
-    <!-- <ion-input [(ngModel)]="model.jobTitle" type="text" required="true"></ion-input> -->
     <ion-input [ngModel]="model?.jobTitle" (ngModelChange)="model.jobTitle = $event" type="text" required="true"
       maxlength="15" minlength="3">
     </ion-input>
