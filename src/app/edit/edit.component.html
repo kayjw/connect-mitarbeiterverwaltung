@@ -1,9 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <!-- <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons> -->
-    <ion-title>{{ (model.firstName !== null) ? "Profil hinzufügen" : "Profil editieren" }}</ion-title>
+    <ion-title>{{ (model.firstName === '') ? "Profil hinzufügen" : "Profil editieren" }}</ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="dismiss()">Zurück</ion-button>
     </ion-buttons>
