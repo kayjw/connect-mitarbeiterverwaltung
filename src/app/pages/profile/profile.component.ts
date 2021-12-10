@@ -14,10 +14,9 @@ import { EditComponent } from 'src/app/edit/edit.component';
 
 export class ProfileComponent implements OnInit {
   // ionic toast to only show one element
-  private toast: HTMLIonToastElement;
   public profile: string;
-  // todo: watch when edit changes
   public edit = false;
+  private toast: HTMLIonToastElement;
 
   constructor(
     private deviceAuthService: DeviceAuthService,
@@ -33,7 +32,7 @@ export class ProfileComponent implements OnInit {
     this.edit = false;
   }
 
-  ngOnInit() { this.refreshEmployees(null) }
+  ngOnInit() { this.refreshEmployees(null); }
 
 
   async presentModal() {
@@ -45,9 +44,7 @@ export class ProfileComponent implements OnInit {
 
   get employee(): Employee {
     return this.employeesService.employees.filter(
-      value => {
-        return value.profile === this.deviceId
-      }
+      value => value.profile === this.deviceId
     )[0];
   }
 

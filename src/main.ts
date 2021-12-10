@@ -7,6 +7,7 @@ import {environment} from './environments/environment';
 if (environment.production) {
   enableProdMode();
   // override console log
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   window &&
     (window.console.log =
       window.console.debug =

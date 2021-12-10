@@ -83,7 +83,6 @@ export class EmployeesService {
       const employees = this._employees.filter(employee => employee.profile === key);
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       !employees.length && reject();
-      console.log(employees);
       resolve(employees[0]);
     });
   }
